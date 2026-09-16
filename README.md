@@ -33,7 +33,7 @@ The single-user certification-state route returns the same public badge, group, 
 
 ## Release
 
-Version 1.2.3 adds a single-user certification-state endpoint for the Academy's on-demand forum status refresh.
+Version 1.2.4 lets linked forum staff accounts use the Academy's read-only certification-state refresh. Certification and dormancy changes to staff accounts remain blocked.
 
 ## Rollback
 

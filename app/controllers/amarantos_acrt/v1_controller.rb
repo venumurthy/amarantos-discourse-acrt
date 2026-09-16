@@ -38,7 +38,7 @@ class AmarantosAcrt::V1Controller < ::ApplicationController
       certification_ready: certification_ready,
       seo_ready: seo_ready,
       enforcement_ready: certification_ready && warnings.empty?,
-      plugin_version: "1.2.3",
+      plugin_version: "1.2.4",
       badge_id: badge_id,
       group_name: group_name,
       issues: (certification_issues + seo_issues).uniq,
@@ -85,7 +85,8 @@ class AmarantosAcrt::V1Controller < ::ApplicationController
 
   def user_certification_state
     user = find_user!
-    raise Discourse::InvalidAccess if excluded_user?(user)
+    # Staff can have an Academy certification record, but staff mutations remain blocked.
+    raise Discourse::InvalidAccess if user.staged? || user.id <= 0 || integration_user_ids.include?(user.id)
     render json: {
       complete: true,
       user: certification_user_json(

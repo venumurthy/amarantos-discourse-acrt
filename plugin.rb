@@ -2,7 +2,7 @@
 
 # name: amarantos-acrt
 # about: Connects public PLRT forum activity, ACRT badge proof, guide mappings and safe dormancy controls to Amarantos.
-# version: 1.2.3
+# version: 1.2.4
 # authors: Amarantos
 # url: https://amarantos.org/
 # required_version: 3.3.0

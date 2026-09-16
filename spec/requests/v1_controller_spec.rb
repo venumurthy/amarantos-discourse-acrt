@@ -78,12 +78,14 @@ RSpec.describe AmarantosAcrt::V1Controller do
     expect(response.status).to eq(404)
   end
 
-  it "does not expose staff certification state" do
+  it "allows read-only certification state for a linked staff member" do
     sign_in(admin)
 
     get "/amarantos-acrt/v1/users/#{admin.id}/certification-state.json"
 
-    expect(response.status).to eq(403)
+    expect(response.status).to eq(200)
+    expect(response.parsed_body["user"]["id"]).to eq(admin.id)
+    expect(response.parsed_body.to_json).not_to include(admin.email)
   end
 
   it "does not count engagement in a member-only category" do

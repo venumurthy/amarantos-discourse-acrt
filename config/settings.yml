@@ -1,0 +1,62 @@
+plugins:
+  amarantos_synergy_enabled:
+    default: false
+    client: true
+  amarantos_acrt_enabled:
+    default: false
+    client: true
+  amarantos_seo_bridge_enabled:
+    default: false
+    client: true
+  amarantos_schema_enabled:
+    default: false
+    client: true
+  amarantos_acrt_badge_id:
+    default: 103
+    min: 1
+  amarantos_acrt_group_name:
+    default: "ACRT"
+  amarantos_acrt_legacy_group_name:
+    default: "ACPPL"
+  amarantos_acrt_plr_cases_category_id:
+    default: 10
+    min: 1
+  amarantos_acrt_qa_category_id:
+    default: 11
+    min: 1
+  amarantos_acrt_editorial_category_ids:
+    default: "10|11|13|14|16"
+    type: list
+  amarantos_acrt_member_only_category_ids:
+    default: "18|3|1|8"
+    type: list
+  amarantos_acrt_public_category_ids:
+    default: "14|16"
+    type: list
+  amarantos_acrt_integration_user_ids:
+    default: ""
+    type: list
+  amarantos_acrt_profile_city_field_id:
+    default: 0
+    min: 0
+  amarantos_acrt_profile_state_field_id:
+    default: 0
+    min: 0
+  amarantos_acrt_profile_country_field_id:
+    default: 0
+    min: 0
+  amarantos_acrt_profile_languages_field_id:
+    default: 0
+    min: 0
+  amarantos_acrt_profile_role_field_id:
+    default: 0
+    min: 0
+  amarantos_acrt_profile_batch_field_id:
+    default: 0
+    min: 0
+  amarantos_acrt_profile_issue_date_field_id:
+    default: 0
+    min: 0
+  amarantos_acrt_profile_expiry_date_field_id:
+    default: 0
+    min: 0

@@ -1,0 +1,32 @@
+.amarantos-related-guide,
+.amarantos-authority-links {
+  border: 1px solid var(--primary-low);
+  border-radius: 0.5rem;
+  background: var(--secondary);
+  padding: 0.85rem 1rem;
+  margin: 0.75rem 0;
+}
+
+.amarantos-related-guide {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+}
+
+.amarantos-authority-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  font-size: var(--font-down-1);
+}
+
+// The forum home page's optional birthdays/anniversaries component is injected
+// after the mobile page has rendered. It moves the topic list down enough to
+// trigger a poor cumulative layout-shift score. Keep the community feature on
+// larger screens, but suppress that late insertion on mobile.
+@media screen and (width < 40rem) {
+  .bdaysannsbanner {
+    display: none !important;
+  }
+}

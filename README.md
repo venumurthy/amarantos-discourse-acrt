@@ -38,3 +38,7 @@ Version 1.2.4 lets linked forum staff accounts use the Academy's read-only certi
 ## Rollback
 
 Disable the plugin first. Restore category permissions and group membership from the pre-change exports. Badge 103 remains the authoritative record; do not recreate membership from cached WordPress data. The related-guide custom fields may remain dormant or be cleared through the service before uninstalling.
+
+## 1.2.5 — Private case submission reading evidence
+
+The activity endpoint now includes `counts.posts_read_count`: the selected user’s saved, forum-wide Posts Read total from Discourse’s user statistics. This all-time count is independent of the activity date window. WordPress uses it only for the initial private-report submission gate, taking the highest of commented cases, liked cases, and posts read.

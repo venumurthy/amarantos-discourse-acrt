@@ -101,6 +101,17 @@ RSpec.describe AmarantosAcrt::V1Controller do
     expect(response.parsed_body["engagement_events"]).to be_empty
   end
 
+  it "returns the selected student's forum-wide Posts Read total independently of the activity window" do
+    sign_in(admin)
+    user.user_stat.update!(posts_read_count: 1563)
+    admin.user_stat.update!(posts_read_count: 9)
+
+    get "/amarantos-acrt/v1/users/#{user.id}/activity.json", params: { from: 2.days.ago.to_date, to: 1.day.ago.to_date }
+    expect(response.status).to eq(200)
+    expect(response.parsed_body.dig("counts", "posts_read_count")).to eq(1563)
+    expect(response.parsed_body.dig("counts", "posts_read_scope")).to eq("forum_wide_all_time")
+  end
+
   it "grants and revokes badge 103 and ACRT membership together" do
     sign_in(admin)
 

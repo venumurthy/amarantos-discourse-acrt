@@ -38,7 +38,7 @@ class AmarantosAcrt::V1Controller < ::ApplicationController
       certification_ready: certification_ready,
       seo_ready: seo_ready,
       enforcement_ready: certification_ready && warnings.empty?,
-      plugin_version: "1.2.4",
+      plugin_version: "1.2.5",
       badge_id: badge_id,
       group_name: group_name,
       issues: (certification_issues + seo_issues).uniq,
@@ -140,11 +140,16 @@ class AmarantosAcrt::V1Controller < ::ApplicationController
           .count
       end
 
+    # Match the forum-wide Posts Read statistic shown on the user's profile.
+    posts_read = user.user_stat&.posts_read_count.to_i
+
     render json: {
       complete: true,
       engagement_events: events,
       public_case_topics: topics.map { |topic| public_case_json(topic, reply_counts[topic.id].to_i) },
       counts: {
+        posts_read_count: posts_read,
+        posts_read_scope: "forum_wide_all_time",
         like_events: likes.length,
         reply_events: replies.length,
         distinct_engagement_topics: events.map { |event| event[:topic_id] }.uniq.length,
